@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  techfriday.dockertesting:
+    image: ${DOCKER_REGISTRY-}techfridaydockertesting
+    build:
+      context: .
+      dockerfile: TechFriday.DockerTesting/Dockerfile
+    ports:
+    - "5101:80"
+  webui:
+    image: ${DOCKER_REGISTRY-}webui
+    build:
+      context: .
+      dockerfile: WebUI/Dockerfile
+    ports:
+    - "5100:80"
+
